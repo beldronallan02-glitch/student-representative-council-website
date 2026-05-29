@@ -1,0 +1,456 @@
+/* Light version — clean, premium white theme */
+
+:root {
+  --bg-1: #ffffff;
+  --bg-2: #84aff0;
+  --accent-1: #2a7fff;
+  --accent-2: #9b7dff;
+  --glass: rgba(0,0,0,0.05);
+  --glass-2: rgba(0,0,0,0.03);
+  --muted: rgba(0,0,0,0.6);
+  --card-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  --text-color: #0a0a0a;
+
+  --card-tilt-x: 0deg;
+  --card-tilt-y: 0deg;
+  --btn-focus-ring: 0 0 0 3px rgba(42,127,255,0.25);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* Subtle background grid */
+.bg-visual {
+  position: fixed; inset: 0; z-index: -2; pointer-events: none;
+}
+.grid-sheen {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 200px 200px;
+  opacity: 0.3;
+}
+
+/* --- Topbar --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 18px 36px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui;
+  font-weight: 700;
+}
+
+.brand-text h1 .accent {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  background-clip: text;              /* standard */
+  -webkit-background-clip: text;      /* Safari / Chrome */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+
+.micro {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-color);
+  transition: all .22s ease;
+}
+
+.btn.subtle {
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(42,127,255,0.3);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: var(--btn-focus-ring);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px dashed rgba(0,0,0,0.1);
+}
+
+/* Layout container */
+.container {
+  max-width: 1150px;
+  margin: 34px auto;
+  padding: 0 22px;
+  display: grid;
+  gap: 28px;
+}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.card.glass {
+  backdrop-filter: blur(10px) saturate(150%);
+}
+
+.card.highlight {
+  border: 1px solid rgba(42,127,255,0.3);
+  box-shadow: 0 8px 30px rgba(42,127,255,0.1);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: 26px;
+  align-items: stretch;
+  padding: 28px;
+  border-radius: 20px;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero-right {
+  width: 360px;
+  align-self: flex-start;
+}
+
+.hero h2 {
+  font-size: 34px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 0;
+  font-size: 15px;
+  max-width: 54ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* Stats */
+.stat-grid {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stat-grid li {
+  list-style: none;
+  background: rgba(0,0,0,0.03);
+  padding: 10px 12px;
+  border-radius: 12px;
+  min-width: 110px;
+  text-align: center;
+}
+
+/* Announcements */
+.announce {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 36px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .topbar {
+    padding: 12px 16px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+}
+
+/* ================================
+   MOBILE RESPONSIVE FIX (FINAL)
+   ================================ */
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .micro {
+    display: none;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .modules-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 8px;
+  }
+
+  .hero {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero-left {
+    align-items: center;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .lead {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stat-grid {
+    flex-direction: column;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+/* =========================================
+   MOBILE MODULE MENU FIX (CRITICAL)
+   ========================================= */
+@media (max-width: 600px) {
+
+  .modules {
+    width: 100%;
+  }
+
+  .modules-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modules-menu {
+    position: relative;        /* override absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 60vh;          /* prevent off-screen overflow */
+    overflow-y: auto;          /* scroll if too long */
+    box-shadow: none;
+    border-radius: 12px;
+    margin-top: 8px;
+    padding: 8px;
+  }
+
+  .modules-menu a {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}
+/* =========================================
+   REAL MOBILE NAV FIX (FINAL SOLUTION)
+   ========================================= */
+
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+}
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+
+  /* Show hamburger */
+  .hamburger {
+    display: block;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* Hide normal nav initially */
+  /* Prevent overlay from blocking page when not active */
+  .nav {
+    position: static;
+    inset: auto;
+    background: transparent;
+    backdrop-filter: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    transform: none;
+    transition: none;
+    z-index: auto;
+    pointer-events: auto;
+  }
+
+  /* When active */
+  /* If using active state later, re-enable overlay */
+  .nav.active {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    transform: none;
+    z-index: 999;
+    pointer-events: auto;
+  }
+
+  /* Buttons full width */
+  .nav a,
+  .nav .modules-toggle {
+    width: 80%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  /* Modules menu becomes simple list */
+  .modules-menu {
+    position: static;
+    width: 80%;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .modules-menu a {
+    background: rgba(0,0,0,0.05);
+    margin-bottom: 8px;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+}
