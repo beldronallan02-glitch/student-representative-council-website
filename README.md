@@ -36,35 +36,54 @@ Built following the **Waterfall methodology**, the system covers the full lifecy
 | Frontend | HTML, JavaScript, Tailwind CSS |
 | Backend | PHP |
 | Database | MySQL |
-| Server | Apache (XAMPP) |
+| Server | Apache (XAMPP, or Docker) |
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+The app runs from the web server's document root (it no longer assumes a `/MPPCONNECT` subfolder), so pick whichever setup below matches your environment.
 
-- [XAMPP](https://www.apachefriends.org/) installed on your machine
+### Option A: Docker (recommended)
 
-### Installation
+**Prerequisites:** [Docker](https://www.docker.com/) and Docker Compose
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/beldronallan02-glitch/student-representative-council-website.git
+   git clone https://github.com/beldronfeadrek/student-representative-council-website.git
+   cd student-representative-council-website
    ```
 
-2. Move the project folder to your XAMPP htdocs directory:
-   ```
-   C:/xampp/htdocs/MPPCONNECT
+2. Start the stack:
+   ```bash
+   docker compose up
    ```
 
-3. Start **Apache** and **MySQL** in the XAMPP Control Panel
-
-4. Import the database via **phpMyAdmin** (`http://localhost/phpmyadmin`)
-
-5. Open your browser and navigate to:
+3. Open your browser and navigate to:
    ```
-   http://localhost/MPPCONNECT
+   http://localhost:8080
+   ```
+
+This spins up PHP + Apache, a MySQL 8 database (auto-seeded from `docker/db/schema.sql`), and phpMyAdmin at `http://localhost:8081`. Database credentials are passed via environment variables in `docker-compose.yml` — see `config.php` for the fallback defaults.
+
+> `docker/db/schema.sql` was reconstructed from the queries in the codebase (no SQL export existed), so treat it as a best-effort starting point rather than a verified source of truth.
+
+### Option B: XAMPP
+
+**Prerequisites:** [XAMPP](https://www.apachefriends.org/) installed on your machine
+
+1. Clone the repository into your XAMPP `htdocs` directory:
+   ```bash
+   git clone https://github.com/beldronfeadrek/student-representative-council-website.git C:/xampp/htdocs/student-representative-council-website
+   ```
+
+2. Start **Apache** and **MySQL** in the XAMPP Control Panel
+
+3. Import the database schema (`docker/db/schema.sql`) via **phpMyAdmin** (`http://localhost/phpmyadmin`)
+
+4. Open your browser and navigate to:
+   ```
+   http://localhost/student-representative-council-website
    ```
 
 ---
@@ -72,12 +91,14 @@ Built following the **Waterfall methodology**, the system covers the full lifecy
 ## 📁 Project Structure
 
 ```
-MPPCONNECT/
+student-representative-council-website/
 ├── assets/                  # Images and media files
 ├── css/                     # Stylesheets
+├── docker/                  # Dockerfile and DB schema for local dev
 ├── modules/                 # Feature modules (announcements, events, complaints, etc.)
 ├── uploads/                 # User uploaded files
-├── config.php               # Database configuration
+├── config.php               # Database configuration (env-overridable)
+├── docker-compose.yml       # Local dev stack (app + MySQL + phpMyAdmin)
 ├── index.php                # Home / landing page
 ├── login.php                # Login page
 ├── register_student.php     # Student registration
