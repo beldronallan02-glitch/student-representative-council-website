@@ -7,7 +7,7 @@ require_once __DIR__ . '/assets/inc/authenticate.php';
 require_login('login.php');
 
 // ROOT
-$ROOT = '/MPPCONNECT';
+$ROOT = '';
 
 $user = current_user();
 

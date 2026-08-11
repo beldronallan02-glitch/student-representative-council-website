@@ -5,12 +5,12 @@
  * Handles database connection and global settings
  */
 
-// Database connection settings
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'mppconnect');
-define('DB_USER', 'mpp_user');
-define('DB_PASS', 'YourNewStrongPassword!');
-define('DB_PORT', '3306');
+// Database connection settings (overridable via environment, e.g. Docker Compose)
+define('DB_HOST', getenv('DB_HOST') ?: '127.0.0.1');
+define('DB_NAME', getenv('DB_NAME') ?: 'mppconnect');
+define('DB_USER', getenv('DB_USER') ?: 'mpp_user');
+define('DB_PASS', getenv('DB_PASS') ?: 'YourNewStrongPassword!');
+define('DB_PORT', getenv('DB_PORT') ?: '3306');
 
 
 // Site-wide constants (optional)

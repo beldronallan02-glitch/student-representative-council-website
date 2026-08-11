@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../assets/inc/authenticate.php';
 require_once __DIR__ . '/search_model.php';
 
-require_login('/MPPCONNECT/login.php');
+require_login('/login.php');
 
 $q = trim($_GET['q'] ?? '');
 $results = [];

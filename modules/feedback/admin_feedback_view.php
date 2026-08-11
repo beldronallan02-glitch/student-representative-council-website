@@ -6,7 +6,7 @@ require_once $PROJECT_ROOT . '/assets/inc/authenticate.php';
 require_once __DIR__ . '/inc/feedback_model.php';
 
 $user = current_user();
-if (!$user || !in_array($user['role'] ?? '', ['mpp','admin'], true)) { header('Location: /MPPCONNECT/login.php'); exit; }
+if (!$user || !in_array($user['role'] ?? '', ['mpp','admin'], true)) { header('Location: /login.php'); exit; }
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $fb = get_feedback_by_id($pdo, $id);
@@ -14,7 +14,7 @@ if (!$fb) { header('Location: admin_feedback.php'); exit; }
 $images = get_feedback_images($pdo, $id);
 ?>
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/></head>
-<link rel="stylesheet" href="/MPPCONNECT/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 <body>
 <header class="topbar"><nav class="nav"><a href="admin_feedback.php" class="btn subtle">Back</a></nav></header>
 <main class="container"><div class="card">

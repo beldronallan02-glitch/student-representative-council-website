@@ -5,7 +5,7 @@ require_once $PROJECT_ROOT . '/config.php';
 require_once $PROJECT_ROOT . '/assets/inc/authenticate.php';
 
 $user = current_user();
-if (!$user) { header('Location: /MPPCONNECT/login.php'); exit; }
+if (!$user) { header('Location: /login.php'); exit; }
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $stmt = $pdo->prepare("SELECT * FROM feedbacks WHERE id=:id LIMIT 1");

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../assets/inc/authenticate.php';
 require_once __DIR__ . '/../../assets/inc/csrf.php';
 
 $user = current_user();
-if (!$user) { header('Location: /MPPCONNECT/login.php'); exit; }
+if (!$user) { header('Location: /login.php'); exit; }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: admin_bookings.php'); exit; }
 if (!verify_csrf($_POST['csrf_token'] ?? '')) { die('Invalid CSRF'); }

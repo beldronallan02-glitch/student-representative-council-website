@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../assets/inc/authenticate.php';
 require_once __DIR__ . '/../../assets/inc/csrf.php';
 
-require_role('admin', '/MPPCONNECT/login.php');
+require_role('admin', '/login.php');
 
 $user = current_user();
 $error = null;
@@ -105,7 +105,7 @@ $studentsCount = is_array($students) ? count($students) : 0;
 $mppsCount = is_array($mpps) ? count($mpps) : 0;
 
 $csrf = csrf_token();
-$ROOT = '/MPPCONNECT';
+$ROOT = '';
 ?>
 <!doctype html>
 <html lang="en">

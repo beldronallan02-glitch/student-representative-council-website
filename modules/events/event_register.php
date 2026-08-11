@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ob_start();
 
-$ROOT = '/MPPCONNECT';
+$ROOT = '';
 
 /* ===============================
    EVENT VALIDATION

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../assets/inc/authenticate.php';
 require_once __DIR__ . '/../../assets/inc/csrf.php';
 
 $user = current_user();
-if (!$user || !in_array($user['role'], ['mpp','admin'], true)) { header('Location: /MPPCONNECT/login.php'); exit; }
+if (!$user || !in_array($user['role'], ['mpp','admin'], true)) { header('Location: /login.php'); exit; }
 
 $facility_id = (int)($_GET['facility_id'] ?? 0);
 $params = [];

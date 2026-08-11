@@ -8,7 +8,7 @@ require_once __DIR__ . '/inc/feedback_model.php';
 
 $user = current_user();
 if (!$user) {
-    header('Location: /MPPCONNECT/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -51,7 +51,7 @@ function render_stars(int $rating): string {
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Feedback — <?= htmlspecialchars(constant('SITE_NAME') ?? 'MPPConnect') ?></title>
 
-<link rel="stylesheet" href="/MPPCONNECT/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <style>
 .feedback-view {

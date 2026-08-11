@@ -6,7 +6,7 @@ require_once $PROJECT_ROOT . '/assets/inc/authenticate.php';
 require_once __DIR__ . '/inc/feedback_model.php';
 
 $user = current_user();
-if (!$user || !in_array($user['role'] ?? '', ['mpp','admin'], true)) { header('Location: /MPPCONNECT/login.php'); exit; }
+if (!$user || !in_array($user['role'] ?? '', ['mpp','admin'], true)) { header('Location: /login.php'); exit; }
 
 $eventId = isset($_GET['event_id']) ? (int)$_GET['event_id'] : 0;
 
@@ -63,7 +63,7 @@ if (!empty($rows)) {
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="stylesheet" href="/MPPCONNECT/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Manage Feedback</title>
   <style>
     .table-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; box-shadow:0 12px 28px rgba(0,0,0,0.08); overflow:hidden; }
@@ -80,7 +80,7 @@ if (!empty($rows)) {
 <body>
 <header class="topbar">
   <nav class="nav">
-    <a href="/MPPCONNECT/index.php" class="btn subtle">Home</a>
+    <a href="/index.php" class="btn subtle">Home</a>
     <a href="feedback_list.php" class="btn subtle">Back</a>
     <a href="admin_feedback_export.php" class="btn subtle">Export CSV</a>
   </nav>

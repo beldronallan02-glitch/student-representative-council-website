@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../assets/inc/authenticate.php';
 require_once __DIR__ . '/../../assets/inc/csrf.php';
 
 $user = current_user();
-if (!$user) { header('Location: /MPPCONNECT/login.php'); exit; } // require login to request
+if (!$user) { header('Location: /login.php'); exit; } // require login to request
 
 $fid = (int)($_GET['facility_id'] ?? 0);
 if ($fid <= 0) { header('Location: facilities_public.php'); exit; }

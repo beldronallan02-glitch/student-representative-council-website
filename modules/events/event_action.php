@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../assets/inc/csrf.php';
 
 $user = current_user();
 if (!$user || !in_array($user['role'] ?? '', ['mpp','admin'], true)) {
-    header('Location: /MPPCONNECT/login.php');
+    header('Location: /login.php');
     exit;
 }
 

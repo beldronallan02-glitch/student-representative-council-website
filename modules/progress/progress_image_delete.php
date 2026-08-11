@@ -11,7 +11,7 @@ $user = current_user();
    ACCESS CONTROL
 ================================ */
 if (!$user || !in_array($user['role'], ['mpp','admin'], true)) {
-    header('Location: /MPPCONNECT/login.php');
+    header('Location: /login.php');
     exit;
 }
 

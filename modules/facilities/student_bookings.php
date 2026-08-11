@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../assets/inc/authenticate.php';
 
 $user = current_user();
-if (!$user) { header('Location: /MPPCONNECT/login.php'); exit; }
+if (!$user) { header('Location: /login.php'); exit; }
 
 $email = trim(strtolower($user['email'] ?? ''));
 if ($email !== '') {

@@ -9,7 +9,7 @@ require_once __DIR__ . '/inc/image_helper.php';
 
 $user = current_user();
 if (!$user) {
-    header('Location: /MPPCONNECT/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Edit Feedback — <?= htmlspecialchars(constant('SITE_NAME') ?? 'MPPConnect') ?></title>
 
-<link rel="stylesheet" href="/MPPCONNECT/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <style>
 .feedback-edit {

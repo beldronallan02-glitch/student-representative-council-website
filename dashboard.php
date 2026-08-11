@@ -24,7 +24,7 @@ $user = current_user();
     <nav class="nav">
       <a class="btn subtle" href="/index.php">Home</a>
       <?php if ($user['role'] === 'admin' || $user['role'] === 'mpp'): ?>
-        <a class="btn" href="/admin_announcements.php">Manage Announcements</a>
+        <a class="btn" href="/modules/announcements/admin_announcements.php">Manage Announcements</a>
       <?php endif; ?>
       <a class="btn ghost" href="/logout.php">Sign Out</a>
     </nav>
@@ -36,14 +36,14 @@ $user = current_user();
       <p>Your role: <strong><?= htmlspecialchars($user['role']) ?></strong></p>
 
       <?php if ($user['role'] === 'admin'): ?>
-        <p><a href="/admin_announcements.php" class="btn">Admin: Manage Announcements</a></p>
+        <p><a href="/modules/announcements/admin_announcements.php" class="btn">Admin: Manage Announcements</a></p>
       <?php endif; ?>
 
       <section>
         <h3>Your quick actions</h3>
         <ul>
-          <li><a href="/profile.php">Edit profile</a></li>
-          <li><a href="/events.php">View events</a></li>
+          <li><a href="/modules/profile/profile.php">Edit profile</a></li>
+          <li><a href="/modules/events/events_public.php">View events</a></li>
         </ul>
       </section>
     </div>
